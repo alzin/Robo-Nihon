@@ -21,15 +21,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();  // Initialize useRouter to access the locale
 
-  console.log(router.locale);
-
   const navItems = [
-    { name: t('home'), href: '/' },
-    { name: t('about'), href: '/about' },
-    { name: t('projects'), href: '/projects' },
-    { name: t('services'), href: '/services' },
-    { name: t('blog'), href: '/blog' },
-    { name: t('contact'), href: '/contact' },
+    { name: t('ホーム'), href: '/' },
+    // { name: t('about'), href: '/about' },
+    { name: t('プロジェクト'), href: '/projects' },
+    { name: t('サービス'), href: '/services' },
+    { name: t('ブログ'), href: '/blog' },
+    { name: t('お問い合わせ'), href: '/contact' },
     // { name: t('bookmarks'), href: '/bookmarks', icon: BookmarkIcon },
   ];
 
@@ -41,9 +39,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <Link href="/" className="font-bold text-xl transition-colors duration-300">
-                Your Name
-              </Link>
+            <Link href="/" className="font-extrabold text-2xl md:text-4xl tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 hover:scale-110 transition-transform duration-300 ease-in-out">
+              ロボ 二ン
+            </Link>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-center space-x-4">

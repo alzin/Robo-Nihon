@@ -7,7 +7,7 @@ import { Readable } from 'stream';
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const pages = ['', '/about', '/projects', '/services', '/blog', '/contact'];
   const languages = ['ja', 'en', 'ar'];
-  const baseUrl = 'https://yourdomain.com'; // Replace with your actual domain
+  const baseUrl = 'https://robo-nihon.vercel.app'; // Replace with your actual domain
 
   const sitemap = new SitemapStream({ hostname: baseUrl });
 

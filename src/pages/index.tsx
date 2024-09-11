@@ -1,12 +1,12 @@
-// src/pages/index.tsx
 
+import React, { useState, useEffect } from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import Testimonials from '../components/Testimonials';
+// import Testimonials from '../components/Testimonials';
 import { CodeBracketIcon, DevicePhoneMobileIcon, GlobeAltIcon, CpuChipIcon } from '@heroicons/react/24/outline';
 
 const skills = [
@@ -16,8 +16,50 @@ const skills = [
   { name: 'AI・機械学習', icon: CpuChipIcon, description: '最新のAI技術を活用したソリューションを提供します。' },
 ];
 
+const movableTexts = [
+  'アイデアを実現',
+  'モバイルアプリを作成',
+  'ウェブサイトを制作',
+  'AIで創造',
+];
+
+
+const useTypingEffect = (text: string, typingSpeed: number) => {
+  const [displayedText, setDisplayedText] = useState('');
+
+  useEffect(() => {
+    let isMounted = true; // to prevent updates if the component unmounts
+    const typeText = async () => {
+      for (let i = 0; i < text.length; i++) {
+        if (!isMounted) return; // avoid updating if the component unmounted
+        setDisplayedText((prev) => prev + text.charAt(i));
+        await new Promise((resolve) => setTimeout(resolve, typingSpeed)); // wait for the specified typingSpeed
+      }
+    };
+    setDisplayedText(''); // clear previous text
+    typeText(); // initiate the typing effect
+
+    return () => {
+      isMounted = false; // clean up to prevent memory leaks
+    };
+  }, [text, typingSpeed]);
+
+  return displayedText;
+};
+
+
 const Home: NextPage = () => {
   const { t } = useTranslation('common');
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const displayedText = useTypingEffect(movableTexts[currentTextIndex], 150); // 100ms typing speed
+
+  useEffect(() => {
+    const textChangeInterval = setInterval(() => {
+      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % movableTexts.length);
+    }, 2500); // Change text every 5 seconds (adjusted to allow for typing time)
+
+    return () => clearInterval(textChangeInterval);
+  }, []);
 
   return (
     <Layout>
@@ -27,7 +69,7 @@ const Home: NextPage = () => {
         ogImage={`/images/og-image-${t('locale')}.jpg`}
       />
       <div>
-        <section className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20">
+        <section className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20 h-[450px]">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -35,7 +77,20 @@ const Home: NextPage = () => {
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <h1 className="text-5xl font-bold mb-4">あなたの名前</h1>
+              <h1 className="text-5xl font-bold mb-4 h-20"> {/* Fixed height to prevent layout shift */}
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={currentTextIndex}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="inline-block"
+                  >
+                    {displayedText}
+                  </motion.span>
+                </AnimatePresence>
+              </h1>
               <p className="text-2xl mb-8">未来を創造するテクノロジーの力</p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -70,9 +125,9 @@ const Home: NextPage = () => {
           </div>
         </section>
 
-        <Testimonials />
+        {/* <Testimonials /> */}
 
-        <section className="py-20">
+        {/* <section className="py-20">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">最新のプロジェクト</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -94,7 +149,7 @@ const Home: NextPage = () => {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
     </Layout>
   );

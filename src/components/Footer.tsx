@@ -1,15 +1,22 @@
-// src/components/Footer.tsx
-
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation('common'); 
   const [email, setEmail] = useState('');
+
+  const navItems = [
+    { name: t('ホーム'), href: '/' },
+    { name: t('プロジェクト'), href: '/projects' },
+    { name: t('サービス'), href: '/services' },
+    { name: t('ブログ'), href: '/blog' },
+    { name: t('お問い合わせ'), href: '/contact' },
+  ];
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you would typically send the email to your backend or newsletter service
     console.log('Subscribed:', email);
     alert('ニュースレターに登録しました！');
     setEmail('');
@@ -20,7 +27,7 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h2 className="text-2xl font-bold mb-4">あなたの名前</h2>
+            <h2 className="text-2xl font-bold mb-4">ロボ 二ン</h2>
             <p className="text-gray-300">
               革新的なソフトウェアソリューションを提供し、テクノロジーの力でビジネスを変革します。
             </p>
@@ -28,10 +35,10 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">クイックリンク</h3>
             <ul className="space-y-2">
-              {['ホーム', '私について', 'プロジェクト', 'サービス', 'お問い合わせ'].map((item, index) => (
+              {navItems.map((item, index) => (
                 <li key={index}>
-                  <Link href={index === 0 ? '/' : `/${item.toLowerCase()}`} className="text-gray-300 hover:text-white transition duration-150 ease-in-out">
-                    {item}
+                  <Link href={item.href} className="text-gray-300 hover:text-white transition duration-150 ease-in-out">
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -61,7 +68,7 @@ const Footer: React.FC = () => {
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700 text-center">
           <p className="text-gray-300">
-            &copy; {new Date().getFullYear()} あなたの名前. All rights reserved.
+            &copy; {new Date().getFullYear()} ロボ 二ン. All rights reserved.
           </p>
         </div>
       </div>
@@ -70,50 +77,3 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
-
-
-
-// // src/components/Footer.tsx
-
-// import React from 'react';
-// import Link from 'next/link';
-// import NewsletterSignup from './NewsletterSignup';
-
-// const Footer: React.FC = () => {
-//   return (
-//     <footer className="bg-gray-800 text-white">
-//       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-//         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-//           <div>
-//             <h2 className="text-2xl font-bold mb-4">あなたの名前</h2>
-//             <p className="text-gray-300">
-//               革新的なソフトウェアソリューションを提供し、テクノロジーの力でビジネスを変革します。
-//             </p>
-//           </div>
-//           <div>
-//             <h3 className="text-lg font-semibold mb-4">クイックリンク</h3>
-//             <ul className="space-y-2">
-//               {['ホーム', '私について', 'プロジェクト', 'サービス', 'ブログ', 'お問い合わせ'].map((item, index) => (
-//                 <li key={index}>
-//                   <Link href={index === 0 ? '/' : `/${item.toLowerCase()}`} className="text-gray-300 hover:text-white transition duration-150 ease-in-out">
-//                     {item}
-//                   </Link>
-//                 </li>
-//               ))}
-//             </ul>
-//           </div>
-//           <div>
-//             <NewsletterSignup location="footer" />
-//           </div>
-//         </div>
-//         <div className="mt-8 pt-8 border-t border-gray-700 text-center">
-//           <p className="text-gray-300">
-//             &copy; {new Date().getFullYear()} あなたの名前. All rights reserved.
-//           </p>
-//         </div>
-//       </div>
-//     </footer>
-//   );
-// };
-
-// export default Footer;
