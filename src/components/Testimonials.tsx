@@ -69,7 +69,7 @@ const Testimonials: React.FC = () => {
                     <p className="text-gray-600 dark:text-gray-300">{testimonial.company}</p>
                   </div>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 italic">"{testimonial.quote}</p>
+                <p className="text-gray-700 dark:text-gray-300 italic">{testimonial.quote}</p>
               </div>
             </div>
           ))}
