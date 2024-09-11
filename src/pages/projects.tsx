@@ -7,25 +7,25 @@ import ProjectCard from '../components/ProjectCard';
 
 const projects = [
   {
-    title: "AI搭載チャットボット",
-    description: "自然言語処理を活用した、高度な顧客サポート用チャットボットの開発。",
-    imageUrl: "/images/chatbot-project.jpg",
-    technologies: ["Python", "TensorFlow", "NLP", "React"],
-    link: "https://github.com/yourusername/ai-chatbot"
+    title: "Skygenic - 自動ドローンビデオキャプチャサービス",
+    description: "観光地での思い出を記録するため、事前に設定した飛行経路に沿って自動的に短編ビデオを撮影するiOSモバイルアプリと、撮影されたビデオを即座にダウンロードできるウェブページの提供。技術と観光体験を融合させた次世代サービス。",
+    imageUrl: "/images/drone.webp",
+    technologies: ["DJI", "iOS", "Swift", "React.js", "S3"],
+    link: "https://www.j-platpat.inpit.go.jp/c1801/TR/JP-2021-052297/40/ja"
   },
   {
-    title: "フィットネストラッカーアプリ",
-    description: "ユーザーの運動習慣を追跡し、パーソナライズされたフィットネスプランを提供するモバイルアプリ。",
-    imageUrl: "/images/fitness-app.jpg",
-    technologies: ["React Native", "Firebase", "Redux", "HealthKit"],
-    link: "https://github.com/yourusername/fitness-tracker"
+    title: "安楽亭配膳ロボット - 日本焼肉レストランでの自動配膳ロボット",
+    description: "焼肉店「Anrakutei」での料理を配膳する未来的なロボットの開発。お店の温かい和風な雰囲気の中、テクノロジーと伝統的な飲食体験をシームレスに結びつけ、顧客の利便性とサービス効率を向上させる。",
+    imageUrl: "/images/robot.webp",
+    technologies: ["Android", "Java", "Kotlin", "Clean Architecture", "Orion Start", "KEENON"],
+    link: "https://www.youtube.com/watch?v=GLHUteFZ8y0"
   },
   {
-    title: "ブロックチェーン投票システム",
-    description: "セキュアで透明性の高い電子投票を実現するブロックチェーンベースのシステム。",
-    imageUrl: "/images/blockchain-voting.jpg",
-    technologies: ["Solidity", "Ethereum", "Web3.js", "Node.js"],
-    link: "https://github.com/yourusername/blockchain-voting"
+    title: "JetCode - AI支援型コーディング支援ツール",
+    description: "ソフトウェア要件を自動的にコードへ変換し、開発者がビジネスロジックに集中できるよう支援するAIツール。AIチャットでコード編集やバグ修正を行い、チームとステークホルダーが同じ実装チャットを共有する機能を搭載。最新技術に対応したコードソリューションを提供。",
+    imageUrl: "/images/jetcode.webp",
+    technologies: ["Python", "Streamlit", "OpenAI API Assistant (ChatGPT)", "Next.js"],
+    link: "https://www.jetcode.app/"
   },
   // Add more projects as needed
 ];
