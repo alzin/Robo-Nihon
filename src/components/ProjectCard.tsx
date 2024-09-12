@@ -1,7 +1,7 @@
 // src/components/ProjectCard.tsx
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 interface ProjectCardProps {
   title: string;
@@ -11,7 +11,13 @@ interface ProjectCardProps {
   link: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl, technologies, link }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  title,
+  description,
+  imageUrl,
+  technologies,
+  link,
+}) => {
   return (
     <motion.div
       className="card"
@@ -20,7 +26,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl,
     >
       <img src={imageUrl} alt={title} className="w-full h-48 object-cover" />
       <div className="p-6">
-        <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">{title}</h3>
+        <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">
+          {title}
+        </h3>
         <p className="text-gray-600 dark:text-gray-300 mb-4">{description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {technologies.map((tech, index) => (

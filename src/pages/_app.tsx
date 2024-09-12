@@ -1,10 +1,10 @@
 // src/pages/_app.tsx
 
-import type { AppProps } from 'next/app';
-import { appWithTranslation } from 'next-i18next';
-import { ThemeProvider } from '../context/themeContext';
-import { AnimatePresence, motion } from 'framer-motion';
-import '../styles/globals.css';
+import type { AppProps } from "next/app";
+import { appWithTranslation } from "next-i18next";
+import { ThemeProvider } from "../context/themeContext";
+import { AnimatePresence, motion } from "framer-motion";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (

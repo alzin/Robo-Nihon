@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { useTranslation } from 'next-i18next';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import Link from "next/link";
+import { useTranslation } from "next-i18next";
+import { motion } from "framer-motion";
 
 const Footer: React.FC = () => {
-  const { t } = useTranslation('common'); 
-  const [email, setEmail] = useState('');
+  const { t } = useTranslation("common");
+  const [email, setEmail] = useState("");
 
   const navItems = [
-    { name: t('ホーム'), href: '/' },
-    { name: t('プロジェクト'), href: '/projects' },
-    { name: t('サービス'), href: '/services' },
-    { name: t('ブログ'), href: '/blog' },
-    { name: t('お問い合わせ'), href: '/contact' },
+    { name: t("ホーム"), href: "/" },
+    { name: t("プロジェクト"), href: "/projects" },
+    { name: t("サービス"), href: "/services" },
+    { name: t("ブログ"), href: "/blog" },
+    { name: t("お問い合わせ"), href: "/contact" },
   ];
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Subscribed:', email);
-    alert('ニュースレターに登録しました！');
-    setEmail('');
+    console.log("Subscribed:", email);
+    alert("ニュースレターに登録しました！");
+    setEmail("");
   };
 
   return (
@@ -37,7 +37,10 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               {navItems.map((item, index) => (
                 <li key={index}>
-                  <Link href={item.href} className="text-gray-300 hover:text-white transition duration-150 ease-in-out">
+                  <Link
+                    href={item.href}
+                    className="text-gray-300 hover:text-white transition duration-150 ease-in-out"
+                  >
                     {item.name}
                   </Link>
                 </li>

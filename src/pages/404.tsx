@@ -1,7 +1,7 @@
-import { NextPage } from 'next';
-import Link from 'next/link';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import { NextPage } from "next";
+import Link from "next/link";
+import Layout from "../components/Layout";
+import SEO from "../components/SEO";
 
 const Custom404: NextPage = () => {
   return (
@@ -22,10 +22,16 @@ const Custom404: NextPage = () => {
             </p>
           </div>
           <div className="mt-8 space-y-4">
-            <Link href="/" className="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            <Link
+              href="/"
+              className="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
               ホームページに戻る
             </Link>
-            <Link href="/contact" className="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            <Link
+              href="/contact"
+              className="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
               お問い合わせ
             </Link>
           </div>

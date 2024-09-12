@@ -1,6 +1,6 @@
 // next.config.js
 
-const { i18n } = require('./next-i18next.config')
+const { i18n } = require("./next-i18next.config");
 
 module.exports = {
   i18n: {
@@ -9,8 +9,8 @@ module.exports = {
   },
   rewrites: async () => [
     {
-      source: '/sitemap.xml',
-      destination: '/api/sitemap.xml',
+      source: "/sitemap.xml",
+      destination: "/api/sitemap.xml",
     },
   ],
-}
+};

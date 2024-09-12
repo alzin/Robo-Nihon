@@ -1,14 +1,18 @@
 // src/pages/blog/[slug].tsx
 
-import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
-import ReactMarkdown from 'react-markdown';
-import Layout from '../../components/Layout';
-import SEO from '../../components/SEO';
-import RelatedPosts from '../../components/RelatedPosts';
-import SocialShareButtons from '../../components/SocialShareButtons';
-import CommentSection from '../../components/CommentSection';
-import { getBlogPosts, getBlogPostBySlug, getRelatedPosts } from '../../utils/getBlogPosts';
-import { BlogPost } from '../../interfaces/BlogPost';
+import { GetStaticProps, GetStaticPaths, NextPage } from "next";
+import ReactMarkdown from "react-markdown";
+import Layout from "../../components/Layout";
+import SEO from "../../components/SEO";
+import RelatedPosts from "../../components/RelatedPosts";
+import SocialShareButtons from "../../components/SocialShareButtons";
+import CommentSection from "../../components/CommentSection";
+import {
+  getBlogPosts,
+  getBlogPostBySlug,
+  getRelatedPosts,
+} from "../../utils/getBlogPosts";
+import { BlogPost } from "../../interfaces/BlogPost";
 
 interface BlogPostPageProps {
   post: BlogPost;
@@ -27,8 +31,12 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post, relatedPosts }) => {
       <div className="bg-gray-100 dark:bg-gray-900 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
         <article className="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
           <div className="p-8">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{post.title}</h1>
-            <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">{post.date}</p>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              {post.title}
+            </h1>
+            <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              {post.date}
+            </p>
             <div className="flex flex-wrap gap-2 mb-6">
               {post.tags.map((tag) => (
                 <span

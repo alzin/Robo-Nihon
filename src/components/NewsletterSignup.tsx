@@ -1,30 +1,31 @@
 // src/components/NewsletterSignup.tsx
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 interface NewsletterSignupProps {
-  location: 'blog' | 'footer';
+  location: "blog" | "footer";
 }
 
 const NewsletterSignup: React.FC<NewsletterSignupProps> = ({ location }) => {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Here you would typically send the email to your backend or newsletter service
-    console.log('Subscribing email:', email);
+    console.log("Subscribing email:", email);
     // Simulate a successful subscription
-    setMessage('ニュースレターに登録しました！');
-    setEmail('');
+    setMessage("ニュースレターに登録しました！");
+    setEmail("");
     // Clear the message after 3 seconds
-    setTimeout(() => setMessage(''), 3000);
+    setTimeout(() => setMessage(""), 3000);
   };
 
-  const containerClass = location === 'blog'
-    ? 'bg-blue-100 dark:bg-blue-900 p-6 rounded-lg shadow-md'
-    : 'bg-gray-200 dark:bg-gray-700 p-4 rounded-lg';
+  const containerClass =
+    location === "blog"
+      ? "bg-blue-100 dark:bg-blue-900 p-6 rounded-lg shadow-md"
+      : "bg-gray-200 dark:bg-gray-700 p-4 rounded-lg";
 
   return (
     <div className={containerClass}>

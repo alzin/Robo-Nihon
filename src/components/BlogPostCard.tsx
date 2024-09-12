@@ -1,11 +1,11 @@
 // src/components/BlogPostCard.tsx
 
-import React from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { BlogPost } from '../interfaces/BlogPost';
-import { ClockIcon } from '@heroicons/react/24/outline';
-import BookmarkButton from './BookmarkButton';
+import React from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { BlogPost } from "../interfaces/BlogPost";
+import { ClockIcon } from "@heroicons/react/24/outline";
+import BookmarkButton from "./BookmarkButton";
 
 interface BlogPostCardProps {
   post: BlogPost;
@@ -21,7 +21,10 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
     >
       <div className="p-6">
         <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
-          <Link href={`/blog/${post.slug}`} className="hover:text-blue-500 transition duration-300">
+          <Link
+            href={`/blog/${post.slug}`}
+            className="hover:text-blue-500 transition duration-300"
+          >
             {post.title}
           </Link>
         </h3>
@@ -33,7 +36,9 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
               {post.readingTime} min read
             </span>
           </div>
-          <BookmarkButton post={{ slug: post.slug, title: post.title, date: post.date }} />
+          <BookmarkButton
+            post={{ slug: post.slug, title: post.title, date: post.date }}
+          />
         </div>
         <p className="text-gray-700 dark:text-gray-300 mb-4">{post.excerpt}</p>
         <div className="flex flex-wrap gap-2 mb-4">

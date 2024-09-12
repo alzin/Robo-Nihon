@@ -1,7 +1,7 @@
 // src/components/CommentSection.tsx
 
-import React, { useState, useEffect } from 'react';
-import { Comment } from '../interfaces/Comment';
+import React, { useState, useEffect } from "react";
+import { Comment } from "../interfaces/Comment";
 
 interface CommentSectionProps {
   postSlug: string;
@@ -9,7 +9,7 @@ interface CommentSectionProps {
 
 const CommentSection: React.FC<CommentSectionProps> = ({ postSlug }) => {
   const [comments, setComments] = useState<Comment[]>([]);
-  const [newComment, setNewComment] = useState({ author: '', content: '' });
+  const [newComment, setNewComment] = useState({ author: "", content: "" });
 
   useEffect(() => {
     const storedComments = localStorage.getItem(`comments_${postSlug}`);
@@ -29,17 +29,27 @@ const CommentSection: React.FC<CommentSectionProps> = ({ postSlug }) => {
       };
       const updatedComments = [...comments, comment];
       setComments(updatedComments);
-      localStorage.setItem(`comments_${postSlug}`, JSON.stringify(updatedComments));
-      setNewComment({ author: '', content: '' });
+      localStorage.setItem(
+        `comments_${postSlug}`,
+        JSON.stringify(updatedComments),
+      );
+      setNewComment({ author: "", content: "" });
     }
   };
 
   return (
     <div className="mt-12">
-      <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">コメント</h2>
+      <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+        コメント
+      </h2>
       {comments.map((comment) => (
-        <div key={comment.id} className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow mb-4">
-          <p className="font-semibold text-gray-900 dark:text-white">{comment.author}</p>
+        <div
+          key={comment.id}
+          className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow mb-4"
+        >
+          <p className="font-semibold text-gray-900 dark:text-white">
+            {comment.author}
+          </p>
           <p className="text-gray-600 dark:text-gray-300 text-sm mb-2">
             {new Date(comment.createdAt).toLocaleString()}
           </p>
@@ -48,26 +58,36 @@ const CommentSection: React.FC<CommentSectionProps> = ({ postSlug }) => {
       ))}
       <form onSubmit={handleSubmit} className="mt-6">
         <div className="mb-4">
-          <label htmlFor="author" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label
+            htmlFor="author"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+          >
             名前
           </label>
           <input
             type="text"
             id="author"
             value={newComment.author}
-            onChange={(e) => setNewComment({ ...newComment, author: e.target.value })}
+            onChange={(e) =>
+              setNewComment({ ...newComment, author: e.target.value })
+            }
             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
             required
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="content" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label
+            htmlFor="content"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+          >
             コメント
           </label>
           <textarea
             id="content"
             value={newComment.content}
-            onChange={(e) => setNewComment({ ...newComment, content: e.target.value })}
+            onChange={(e) =>
+              setNewComment({ ...newComment, content: e.target.value })
+            }
             rows={4}
             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
             required

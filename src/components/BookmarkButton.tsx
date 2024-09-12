@@ -1,9 +1,14 @@
 // src/components/BookmarkButton.tsx
 
-import React, { useState, useEffect } from 'react';
-import { BookmarkIcon as BookmarkOutline } from '@heroicons/react/24/outline';
-import { BookmarkIcon as BookmarkSolid } from '@heroicons/react/24/solid';
-import { addBookmark, removeBookmark, isBookmarked, BookmarkedPost } from '../utils/bookmark';
+import React, { useState, useEffect } from "react";
+import { BookmarkIcon as BookmarkOutline } from "@heroicons/react/24/outline";
+import { BookmarkIcon as BookmarkSolid } from "@heroicons/react/24/solid";
+import {
+  addBookmark,
+  removeBookmark,
+  isBookmarked,
+  BookmarkedPost,
+} from "../utils/bookmark";
 
 interface BookmarkButtonProps {
   post: BookmarkedPost;
@@ -36,7 +41,7 @@ const BookmarkButton: React.FC<BookmarkButtonProps> = ({ post }) => {
       ) : (
         <BookmarkOutline className="h-5 w-5 mr-1" />
       )}
-      <span>{isMarked ? 'ブックマーク済み' : 'ブックマーク'}</span>
+      <span>{isMarked ? "ブックマーク済み" : "ブックマーク"}</span>
     </button>
   );
 };

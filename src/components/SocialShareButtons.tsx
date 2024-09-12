@@ -1,35 +1,38 @@
 // src/components/SocialShareButtons.tsx
 
-import React from 'react';
-import { FaTwitter, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
+import React from "react";
+import { FaTwitter, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 
 interface SocialShareButtonsProps {
   url: string;
   title: string;
 }
 
-const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) => {
+const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({
+  url,
+  title,
+}) => {
   const encodedUrl = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);
 
   const shareLinks = [
     {
-      name: 'Twitter',
+      name: "Twitter",
       href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
       icon: FaTwitter,
-      color: 'bg-blue-400',
+      color: "bg-blue-400",
     },
     {
-      name: 'Facebook',
+      name: "Facebook",
       href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
       icon: FaFacebookF,
-      color: 'bg-blue-600',
+      color: "bg-blue-600",
     },
     {
-      name: 'LinkedIn',
+      name: "LinkedIn",
       href: `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`,
       icon: FaLinkedinIn,
-      color: 'bg-blue-700',
+      color: "bg-blue-700",
     },
   ];
 
