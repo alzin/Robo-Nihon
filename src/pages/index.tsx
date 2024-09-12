@@ -69,12 +69,12 @@ const useTypingEffect = (text: string, typingSpeed: number) => {
 const Home: NextPage = () => {
   const { t } = useTranslation("common");
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const displayedText = useTypingEffect(movableTexts[currentTextIndex], 150); // 100ms typing speed
+  const displayedText = useTypingEffect(movableTexts[currentTextIndex], 150);
 
   useEffect(() => {
     const textChangeInterval = setInterval(() => {
       setCurrentTextIndex((prevIndex) => (prevIndex + 1) % movableTexts.length);
-    }, 2500); // Change text every 5 seconds (adjusted to allow for typing time)
+    }, 2500);
 
     return () => clearInterval(textChangeInterval);
   }, []);
@@ -82,8 +82,8 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <SEO
-        title={t("homeTitle")}
-        description={t("homeDescription")}
+        title={t("ロボ 二ン")}
+        description={t("The power of technology to create the future")}
         ogImage={`/images/og-image-${t("locale")}.jpg`}
       />
       <div>

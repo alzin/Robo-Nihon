@@ -10,7 +10,6 @@ import {
   FaGithub,
   FaLinkedin,
   FaStackOverflow,
-  FaTwitter,
 } from "react-icons/fa";
 
 const Contact: NextPage = () => {
