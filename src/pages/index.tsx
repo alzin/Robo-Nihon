@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { GetStaticProps, NextPage } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -112,13 +113,15 @@ const Home: NextPage = () => {
                 </AnimatePresence>
               </h1>
               <p className="text-2xl mb-8">未来を創造するテクノロジーの力</p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-blue-500 px-6 py-2 rounded-full hover:bg-blue-100 transition duration-300"
-              >
-                プロジェクトを見る
-              </motion.button>
+              <Link href="/projects">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-white text-blue-500 px-6 py-2 rounded-full hover:bg-blue-100 transition duration-300"
+                >
+                  プロジェクトを見る
+                </motion.button>
+              </Link>
             </motion.div>
           </div>
         </section>
