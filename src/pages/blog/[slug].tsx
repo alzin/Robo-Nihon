@@ -2,6 +2,10 @@
 
 import { GetStaticProps, GetStaticPaths, NextPage } from "next";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import remarkEmoji from "remark-emoji";
+import rehypeRaw from "rehype-raw";
+import rehypeHighlight from "rehype-highlight";
 import Layout from "../../components/Layout";
 import SEO from "../../components/SEO";
 import RelatedPosts from "../../components/RelatedPosts";
@@ -20,12 +24,12 @@ interface BlogPostPageProps {
 }
 
 const BlogPostPage: NextPage<BlogPostPageProps> = ({ post, relatedPosts }) => {
-  const postUrl = `https://yourdomain.com/blog/${post.slug}`; // Replace with your actual domain
+  const postUrl = `https://robo-nihon.vercel.app/blog/${post.slug}`;
 
   return (
     <Layout>
       <SEO
-        title={`${post.title} - あなたの名前のブログ`}
+        title={`${post.title} - Your Blog Name`}
         description={post.excerpt}
       />
       <div className="bg-gray-100 dark:bg-gray-900 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
@@ -48,8 +52,13 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post, relatedPosts }) => {
               ))}
             </div>
             <SocialShareButtons url={postUrl} title={post.title} />
-            <div className="prose dark:prose-dark max-w-none">
-              <ReactMarkdown>{post.content}</ReactMarkdown>
+            <div className="prose dark:prose-invert max-w-none">
+              <ReactMarkdown
+                remarkPlugins={[[remarkGfm], [remarkEmoji, { emoticon: true }]]}
+                rehypePlugins={[rehypeRaw, rehypeHighlight]}
+              >
+                {post.content}
+              </ReactMarkdown>
             </div>
             <SocialShareButtons url={postUrl} title={post.title} />
           </div>

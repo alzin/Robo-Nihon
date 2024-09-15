@@ -2,13 +2,13 @@
 
 import type { AppProps } from "next/app";
 import { appWithTranslation } from "next-i18next";
-import { ThemeProvider } from "../context/themeContext";
+import { ThemeProvider } from "next-themes";
 import { AnimatePresence, motion } from "framer-motion";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
-    <ThemeProvider>
+    <ThemeProvider attribute="class">
       <AnimatePresence mode="wait">
         <motion.div
           key={router.route}

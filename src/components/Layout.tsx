@@ -3,14 +3,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
-import { useTheme } from "../context/themeContext";
+import ThemeToggle from "./ThemeToggle";
 // import { SunIcon, MoonIcon, MinusIcon, XMarkIcon, BookmarkIcon } from '@heroicons/react/24/outline';
-import {
-  SunIcon,
-  MoonIcon,
-  MinusIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { MinusIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Footer from "./Footer";
 // import LanguageSwitcher from './LanguageSwitcher';
 import { motion, AnimatePresence } from "framer-motion";
@@ -22,7 +17,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { t } = useTranslation("common");
-  const { theme, toggleTheme } = useTheme();
+  // const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter(); // Initialize useRouter to access the locale
 
@@ -40,7 +35,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <div
-      className={`min-h-screen flex flex-col ${theme === "dark" ? "dark" : ""} ${router.locale === "ar" ? "rtl" : ""}`}
+      className={`min-h-screen flex flex-col ${router.locale === "ar" ? "rtl" : ""}`}
     >
       <header className="bg-white dark:bg-gray-800 text-gray-800 dark:text-white shadow-md transition-colors duration-300">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,16 +64,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </div>
             </div>
             <div className="flex items-center">
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-md text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-colors duration-300"
-              >
-                {theme === "dark" ? (
-                  <SunIcon className="h-6 w-6" aria-hidden="true" />
-                ) : (
-                  <MoonIcon className="h-6 w-6" aria-hidden="true" />
-                )}
-              </button>
+              <ThemeToggle />
               <button
                 className="ml-2 md:hidden p-2 rounded-md text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 onClick={toggleMenu}
