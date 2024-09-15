@@ -17,7 +17,7 @@ const BookmarksPage: NextPage = () => {
   return (
     <Layout>
       <SEO
-        title="ブックマーク - あなたの名前のブログ"
+        title="ブックマーク - ロボ 二ンのブログ"
         description="保存した記事一覧"
       />
       <div className="bg-gray-100 dark:bg-gray-900 min-h-screen py-12 px-4 sm:px-6 lg:px-8">

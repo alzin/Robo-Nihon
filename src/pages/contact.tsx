@@ -16,7 +16,7 @@ const Contact: NextPage = () => {
   return (
     <Layout>
       <SEO
-        title="お問い合わせ - あなたの名前"
+        title="お問い合わせ - ロボ 二ン"
         description="ご質問、プロジェクトの依頼、またはその他のお問い合わせはこちらからお願いします。"
       />
       <div className="bg-gray-100 dark:bg-gray-900 min-h-screen py-12 px-4 sm:px-6 lg:px-8">

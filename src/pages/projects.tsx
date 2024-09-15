@@ -49,7 +49,7 @@ const Projects: NextPage = () => {
   return (
     <Layout>
       <SEO
-        title="プロジェクト - あなたの名前"
+        title="プロジェクト - ロボ 二ン"
         description="私が取り組んできた主要なプロジェクトのショーケース。革新的なソリューションと技術的な専門知識をご覧ください。"
       />
       <div className="bg-gray-100 dark:bg-gray-900 min-h-screen py-12 px-4 sm:px-6 lg:px-8">

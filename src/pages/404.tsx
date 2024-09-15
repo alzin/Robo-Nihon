@@ -7,7 +7,7 @@ const Custom404: NextPage = () => {
   return (
     <Layout>
       <SEO
-        title="ページが見つかりません - あなたの名前"
+        title="ページが見つかりません - ロボ 二ン"
         description="申し訳ありませんが、お探しのページは見つかりませんでした。"
       />
       <div className="bg-gray-100 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">

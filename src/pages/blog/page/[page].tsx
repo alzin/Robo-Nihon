@@ -59,7 +59,7 @@ const BlogPage: NextPage<BlogPageProps> = ({
   return (
     <Layout>
       <SEO
-        title={`ブログ - ページ ${currentPage} - あなたの名前`}
+        title={`ブログ - ページ ${currentPage} - ロボ 二ン`}
         description="ソフトウェア開発、AI、テクノロジーに関する洞察と経験を共有します。"
       />
       <div className="bg-gray-100 dark:bg-gray-900 min-h-screen py-12 px-4 sm:px-6 lg:px-8">

@@ -62,7 +62,7 @@ const Services: NextPage = () => {
   return (
     <Layout>
       <SEO
-        title="サービス - あなたの名前"
+        title="サービス - ロボ 二ン"
         description="ウェブ開発、モバイルアプリ開発、AI・機械学習ソリューションなど、幅広いIT サービスを提供しています。"
       />
       <div className="bg-gray-100 dark:bg-gray-900 min-h-screen py-12 px-4 sm:px-6 lg:px-8">

@@ -34,7 +34,7 @@ const About: NextPage = () => {
   return (
     <Layout>
       <SEO
-        title="私について - あなたの名前"
+        title="私について - ロボ 二ン"
         description="ソフトウェア開発者としての経歴と人生のストーリー。技術への情熱と成果を紹介します。"
       />
       <div className="bg-white dark:bg-gray-900 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
