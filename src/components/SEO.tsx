@@ -19,7 +19,7 @@ const SEO: React.FC<SEOProps> = ({
   const router = useRouter();
   const { locales, locale: currentLocale } = router;
 
-  const baseUrl = "https://robo-nihon.vercel.app"; 
+  const baseUrl = "https://robo-nihon.vercel.app";
 
   const hrefLangUrls = locales?.map((locale) => ({
     hrefLang: locale,

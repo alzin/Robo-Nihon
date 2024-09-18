@@ -1,6 +1,6 @@
 // pages/_document.tsx
 
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
@@ -24,7 +24,7 @@ class MyDocument extends Document {
               src="https://www.googletagmanager.com/ns.html?id=GTM-PT7VJMJG"
               height="0"
               width="0"
-              style={{ display: 'none', visibility: 'hidden' }}
+              style={{ display: "none", visibility: "hidden" }}
             ></iframe>
           </noscript>
           <Main />

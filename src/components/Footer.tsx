@@ -15,11 +15,30 @@ const Footer: React.FC = () => {
     { name: t("お問い合わせ"), href: "/contact" },
   ];
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Subscribed:", email);
-    alert("ニュースレターに登録しました！");
-    setEmail("");
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (res.status === 200) {
+        alert(data.message);
+        setEmail("");
+      } else {
+        alert(`エラー: ${data.message}`);
+      }
+    } catch (error) {
+      console.error("Error subscribing:", error);
+      alert("エラーが発生しました。後ほど再度お試しください。");
+    }
   };
 
   return (

@@ -11,13 +11,31 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({ location }) => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you would typically send the email to your backend or newsletter service
-    console.log("Subscribing email:", email);
-    // Simulate a successful subscription
-    setMessage("ニュースレターに登録しました！");
-    setEmail("");
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (res.status === 200) {
+        setMessage(data.message);
+        setEmail("");
+      } else {
+        setMessage(`エラー: ${data.message}`);
+      }
+    } catch (error) {
+      console.error("Error subscribing:", error);
+      setMessage("エラーが発生しました。後ほど再度お試しください。");
+    }
+
     // Clear the message after 3 seconds
     setTimeout(() => setMessage(""), 3000);
   };
