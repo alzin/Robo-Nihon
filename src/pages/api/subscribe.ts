@@ -11,7 +11,7 @@ sendgrid.setApiKey(process.env.SENDGRID_API_KEY!);
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data>,
 ) {
   if (req.method !== "POST") {
     // Return 405 Method Not Allowed if not POST
@@ -28,8 +28,8 @@ export default async function handler(
   try {
     // Add the email to SendGrid contacts
     const request = {
-      url: '/v3/marketing/contacts',
-      method: 'PUT' as const,
+      url: "/v3/marketing/contacts",
+      method: "PUT" as const,
       body: {
         contacts: [
           {

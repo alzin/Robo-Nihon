@@ -39,8 +39,24 @@ const projects = [
       "Streamlit",
       "OpenAI API Assistant (ChatGPT)",
       "Next.js",
+      "Prompt Engineering",
     ],
     link: "https://www.jetcode.app/",
+  },
+  {
+    title: "Artículo - インスタント記事生成ツール",
+    description:
+      "ArtículoのAI搭載プラットフォームを活用し、数秒で高品質の記事を作成して生産性を向上させましょう。コンテンツ作成を効率化し、ブログ、マーケティング、ビジネス向けに魅力的な記事を迅速に生成することが可能です。",
+    imageUrl: "/images/articulo.webp",
+    technologies: [
+      "React.js",
+      "Node.js",
+      "ChatGPT API",
+      "Express",
+      "Typescript",
+      "Prompt Engineering",
+    ],
+    link: "https://www.articul0.com/",
   },
   // Add more projects as needed
 ];
