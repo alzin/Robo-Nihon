@@ -6,9 +6,9 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import dynamic from 'next/dynamic';
 
-const ImageFloat = dynamic(() => import("../components/ImageFloat"), { ssr: false });
+// import dynamic from 'next/dynamic';
+// const ImageFloat = dynamic(() => import("../components/ImageFloat"), { ssr: false });
 
 // import Testimonials from '../components/Testimonials';
 import {
@@ -76,7 +76,7 @@ const Home: NextPage = () => {
   const { t } = useTranslation("common");
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const displayedText = useTypingEffect(movableTexts[currentTextIndex], 150);
-  const [rotate, setRotate] = useState(0);
+  // const [rotate, setRotate] = useState(0);
 
   useEffect(() => {
     const textChangeInterval = setInterval(() => {
@@ -86,14 +86,13 @@ const Home: NextPage = () => {
     return () => clearInterval(textChangeInterval);
   }, []);
 
-  useEffect(() => {
-    const changeRotate = setInterval(() => {
-      setRotate(360 * Math.random());
-    }, 20000);
+  // useEffect(() => {
+  //   const changeRotate = setInterval(() => {
+  //     setRotate(360 * Math.random());
+  //   }, 20000);
 
-    return () => clearInterval(changeRotate);
-  }, []);
-
+  //   return () => clearInterval(changeRotate);
+  // }, []);
 
   return (
     <Layout>
@@ -109,7 +108,7 @@ const Home: NextPage = () => {
               {Array(2500).fill("").map((_, i) => (
                 <motion.span
                   initial={{ scale: 1, rotate: 360 * Math.random() }}
-                  animate={{ scale: [1, .5, 1], rotate: rotate }}
+                  animate={{ scale: [1, .5, 1], rotate: 360 * Math.random() }}
                   transition={{ duration: 1, delay: (50 * Math.random() + 2), repeat: Infinity, repeatDelay: 50 }}
                   key={i}
                   className="secret rounded w-[calc((100vw-49*10px)/50)] h-[calc((100vw-49*10px)/50)] block border-[2px] border-[#3b82f6]" />
