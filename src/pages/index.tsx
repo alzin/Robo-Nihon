@@ -6,6 +6,10 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
+import dynamic from 'next/dynamic';
+
+const ImageFloat = dynamic(() => import("../components/ImageFloat"), { ssr: false });
+
 // import Testimonials from '../components/Testimonials';
 import {
   CodeBracketIcon,
@@ -47,6 +51,7 @@ const movableTexts = [
 const useTypingEffect = (text: string, typingSpeed: number) => {
   const [displayedText, setDisplayedText] = useState("");
 
+
   useEffect(() => {
     let isMounted = true; // to prevent updates if the component unmounts
     const typeText = async () => {
@@ -71,6 +76,7 @@ const Home: NextPage = () => {
   const { t } = useTranslation("common");
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const displayedText = useTypingEffect(movableTexts[currentTextIndex], 150);
+  const [rotate, setRotate] = useState(0);
 
   useEffect(() => {
     const textChangeInterval = setInterval(() => {
@@ -80,6 +86,15 @@ const Home: NextPage = () => {
     return () => clearInterval(textChangeInterval);
   }, []);
 
+  useEffect(() => {
+    const changeRotate = setInterval(() => {
+      setRotate(360 * Math.random());
+    }, 20000);
+
+    return () => clearInterval(changeRotate);
+  }, []);
+
+
   return (
     <Layout>
       <SEO
@@ -88,13 +103,28 @@ const Home: NextPage = () => {
         ogImage={`/images/og-image-${t("locale")}.jpg`}
       />
       <div>
-        <section className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20 h-[450px]">
-          <div className="container mx-auto px-4">
+        <section className="gradient-bg text-white py-20 h-[calc(100vh-64px)]">
+          <div className="container mx-auto px-4 flex items-center justify-center h-full">
+            <div className="absolute z-0 top-16 left-0 h-[calc(100vh-64px)] max-w-full overflow-hidden flex flex-wrap gap-[10px]">
+              {Array(2500).fill("").map((_, i) => (
+                <motion.span
+                  initial={{ scale: 1, rotate: 360 * Math.random() }}
+                  animate={{ scale: [1, .5, 1], rotate: rotate }}
+                  transition={{ duration: 1, delay: (50 * Math.random() + 2), repeat: Infinity, repeatDelay: 50 }}
+                  key={i}
+                  className="secret rounded w-[calc((100vw-49*10px)/50)] h-[calc((100vw-49*10px)/50)] block border-[2px] border-[#3b82f6]" />
+              ))}
+            </div>
+
+            <div className="absolute z-0 top-16 left-0 h-[calc(100vh-64px)] w-full overflow-hidden">
+              {/* <ImageFloat /> */}
+            </div>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-center"
+              className="text-center z-20 w-1/2"
             >
               <h1 className="text-5xl font-bold mb-4 h-20">
                 {" "}
@@ -179,8 +209,8 @@ const Home: NextPage = () => {
             </div>
           </div>
         </section> */}
-      </div>
-    </Layout>
+      </div >
+    </Layout >
   );
 };
 

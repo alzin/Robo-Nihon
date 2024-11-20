@@ -5,7 +5,12 @@ module.exports = {
   ],
   darkMode: "class", // This enables dark mode
   theme: {
-    extend: {},
+    extend: {
+      borderWidth: {
+        'thin': '0.01cm',
+        'gradient': 'repeating-linear-gradient(45deg, #ff0000, #ff0000 25%, #00ff00 25%, #00ff00 50%, #0000ff 50%, #0000ff 75%, #ff00ff 75%, #ff00ff)',
+      },
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };
