@@ -7,9 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 
-// import dynamic from 'next/dynamic';
-// const ImageFloat = dynamic(() => import("../components/ImageFloat"), { ssr: false });
-
 // import Testimonials from '../components/Testimonials';
 import {
   CodeBracketIcon,
@@ -17,6 +14,8 @@ import {
   GlobeAltIcon,
   CpuChipIcon,
 } from "@heroicons/react/24/outline";
+import AnimatedBackground from "../components/AnimatedBackground";
+import ImageFloat from "../components/ImageFloat";
 
 const skills = [
   {
@@ -86,13 +85,6 @@ const Home: NextPage = () => {
     return () => clearInterval(textChangeInterval);
   }, []);
 
-  // useEffect(() => {
-  //   const changeRotate = setInterval(() => {
-  //     setRotate(360 * Math.random());
-  //   }, 20000);
-
-  //   return () => clearInterval(changeRotate);
-  // }, []);
 
   return (
     <Layout>
@@ -104,20 +96,8 @@ const Home: NextPage = () => {
       <div>
         <section className="gradient-bg text-white py-20 h-[calc(100vh-64px)]">
           <div className="container mx-auto px-4 flex items-center justify-center h-full">
-            <div className="absolute z-0 top-16 left-0 h-[calc(100vh-64px)] max-w-full overflow-hidden flex flex-wrap gap-[10px]">
-              {Array(2500).fill("").map((_, i) => (
-                <motion.span
-                  initial={{ scale: 1, rotate: 360 * Math.random() }}
-                  animate={{ scale: [1, .5, 1], rotate: 360 * Math.random() }}
-                  transition={{ duration: 1, delay: (50 * Math.random() + 2), repeat: Infinity, repeatDelay: 50 }}
-                  key={i}
-                  className="secret rounded w-[calc((100vw-49*10px)/50)] h-[calc((100vw-49*10px)/50)] block border-[2px] border-[#3b82f6]" />
-              ))}
-            </div>
-
-            <div className="absolute z-0 top-16 left-0 h-[calc(100vh-64px)] w-full overflow-hidden">
-              {/* <ImageFloat /> */}
-            </div>
+            <AnimatedBackground />
+            <ImageFloat />
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
