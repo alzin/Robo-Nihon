@@ -2,8 +2,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import dynamic from 'next/dynamic';
 
-
-
 const icons = [
     {
         name: "bootstrap",
@@ -64,8 +62,38 @@ const icons = [
 ]
 const ImageFloat = () => {
 
+
     return (
         <div className="p-[10px] absolute z-0 top-16 left-0 h-[calc(100vh-64px)] w-full overflow-hidden flex items-start justify-between">
+
+            {/* <div className="flex w-1/3">
+                {Array(icons.length / 2).fill("").map((_, i) => (
+                    <motion.span
+                        initial={{ y: (window.innerHeight - 100) * Math.random(), opacity: .7, scale: 0, rotate: 0, }}
+                        animate={{ opacity: 1, rotate: 360, scale: 1.1 }}
+                        transition={{ duration: 2, delay: i * Math.random() + 3, repeat: Infinity, repeatDelay: 10, type: "spring", stiffness: 400, damping: 10 }}
+                        key={i}
+                        className={`rounded w-calc(((100vw-19*10px)-15px-20px)/20) h-calc(((100vw-19*10px)-15px-20px)/20)`}
+                    >
+                        <Image className="rounded" width={80} height={80} src={icons[i].src} alt="1" />
+                    </motion.span>
+                ))}
+            </div> */}
+
+            {/* <div className="flex w-1/3">
+                {Array(icons.length / 2).fill("").map((_, i) => (
+                    <motion.span
+                        initial={{ y: (window.innerHeight - 100) * Math.random(), opacity: .7, scale: 0, rotate: 0, }}
+                        animate={{ opacity: 1, rotate: 360, scale: 1.1 }}
+                        transition={{ duration: 2, delay: i * Math.random() + 3, repeat: Infinity, repeatDelay: 10, type: "spring", stiffness: 400, damping: 10 }}
+                        key={i}
+                        className={`rounded w-calc(((100vw-19*10px)-15px-20px)/20) h-calc(((100vw-19*10px)-15px-20px)/20)`}
+                    >
+                        <Image className="rounded" width={80} height={80} src={icons[icons.length - i - 1].src} alt="1" />
+                    </motion.span>
+                ))}
+            </div> */}
+
             {Array(icons.length).fill("").map((_, i) => (
                 <motion.span
                     initial={{ y: window.innerHeight, opacity: .7, rotate: 0 }}
@@ -77,6 +105,7 @@ const ImageFloat = () => {
                     <Image className="rounded" width={80} height={80} src={icons[i].src} alt="1" />
                 </motion.span>
             ))}
+
 
             {/* {Array(10).fill("").map((_, i) => (
                 <motion.span

@@ -21,7 +21,7 @@ const AnimatedBackground = () => {
                     animate={{ scale: [1, .5, 1], rotate: rotate }}
                     transition={{ duration: 1, delay: (50 * Math.random() + 2), repeat: Infinity, repeatDelay: 50 }}
                     key={i}
-                    className="secret rounded w-[calc(((100vw-19*10px)-15px-20px)/20)] h-[calc(((100vw-19*10px)-15px-20px)/20)]  block border-[2px] border-[#3b82f6]" />
+                    className="secret rounded xl:w-[calc(((100vw-19*10px)-15px-20px)/20)] xl:h-[calc(((100vw-19*10px)-15px-20px)/20)] sm:w-[calc(((100vw-14*10px)-15px-20px)/15)] sm:h-[calc(((100vw-14*10px)-15px-20px)/15)] w-[calc(((100vw-9*10px)-20px)/10)] h-[calc(((100vw-9*10px)-20px)/10)]  block border-[1px] lg:border-[2px] border-[#3b82f6]" />
             ))}
         </div>
     )
